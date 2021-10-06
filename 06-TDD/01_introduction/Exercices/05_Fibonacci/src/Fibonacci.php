@@ -25,6 +25,7 @@ class Fibonacci
         }
     }
 
+    
     public function genSimpleSuite($n)
     {
         $num1 = 0;
