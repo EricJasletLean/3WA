@@ -13,19 +13,19 @@ class StorageMySQLTest extends TestCase
       
     public function setUp(): void
     {
-        $this->storageMySQL->reset();
         $this->productOne = new Product('apple', 100);
         $this->storageMySQL = new StorageMySQL(self::$pdo);
+        $this->storageMySQL->reset();
     }
 
     public static function setUpBeforeClass():void
     {
-        self::$pdo = ConnectTest::connect();
+        self::$pdo = Connect::connect();
     }
 
     public static function tearDownAfterClass():void
     {
-        self::$pdo = ConnectTest::disconnect(self::$pdo);
+        self::$pdo = Connect::disconnect(self::$pdo);
     }
 
     /**

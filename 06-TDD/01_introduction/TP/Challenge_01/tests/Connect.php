@@ -1,12 +1,12 @@
 <?php
 
-class ConnectTest {
+class Connect {
 
     public static function connect() :\PDO {
 
         $pdo = null;
         try {
-            $pdo = new \PDO( "sqlite:".__DIR__."/fruittest.sql" );
+            $pdo = new \PDO( "sqlite:".__DIR__."/_data/fruittest.sql" );
             echo "connect database".PHP_EOL;
         }
         catch ( \PDOException $e ) {

@@ -2,8 +2,11 @@
 <phpunit bootstrap="tests/bootstrap.php"
          colors="true">
     <testsuites>
-        <testsuite name="Message">
+        <testsuite name="testAll">
             <directory>./tests</directory>
+        </testsuite>
+        <testsuite name="testCart">
+            <directory>./tests/Cart</directory>
         </testsuite>
     </testsuites>
 </phpunit>

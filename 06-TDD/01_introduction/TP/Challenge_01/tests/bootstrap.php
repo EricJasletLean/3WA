@@ -5,8 +5,7 @@ require_once __DIR__.'/../vendor/autoload.php';
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/..');
 $dotenv->load();
 
-
-$pdo = ConnectTest::connect();
+$pdo = Connect::connect();
 
 $pdo->query("
     CREATE TABLE IF NOT EXISTS product ( 
@@ -19,4 +18,4 @@ $pdo->query("
 $pdo->exec("DELETE FROM product;");
 $pdo->exec("INSERT INTO product (name, price) VALUES  ('apple', 10.5), ('raspberry',13), ('strawberry', 7.8);");
 
-ConnectTest::disconnect($pdo);
+Connect::disconnect($pdo);
