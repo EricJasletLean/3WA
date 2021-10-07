@@ -73,12 +73,6 @@ class CartTest extends TestCase
 
     public function testRestoreQuantityunderZero()
     {
-        /*
-            test
-        */
-
-        // -----------------
-
         $this->cart->buy($this->product, 1);
         $this->cart->restoreQuantity($this->product, 2);
         $this->assertEquals(0, $this->cart->total());

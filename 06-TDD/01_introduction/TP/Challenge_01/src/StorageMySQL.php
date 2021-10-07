@@ -11,7 +11,8 @@ class StorageMySQL implements Storable{
         )
     {}
 
-    public function setValue(string $name, float $price):void{
+    public function setValue(string $name, float $price):void
+    {
 
         $row = $this->findOneBuyName($name);
 
@@ -23,14 +24,17 @@ class StorageMySQL implements Storable{
             return;
         }
         
-        $this->addOneProduct($name, $price);
+        $this->addOneProduct( $name, $price );
     }
 
-
-
-    public function restore(string $name):void{
-        if(array_key_exists($name, $this->storage) === true)
-            unset( $this->storage[$name] );
+    public function restore( string $name ):void
+    {
+        $row = $this->findOneBuyName($name);
+        if (count($row) === 1) {
+            $sql = "DELETE FROM product WHERE name = :name";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute([':name' => $name]);
+        }
     }
 
     public function reset():void{
