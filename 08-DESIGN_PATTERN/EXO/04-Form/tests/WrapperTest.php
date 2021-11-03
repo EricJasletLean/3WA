@@ -18,10 +18,4 @@ class WrapperTest extends TestCase
     {
         $this->assertInstanceOf('App\Form\Wrapper', $this->wrapper);
     }
-
-    // public function testWrapperAddComponent()
-    // {
-    //     $input = new Input('description', "Description", 'text');
-
-    // }
 }
