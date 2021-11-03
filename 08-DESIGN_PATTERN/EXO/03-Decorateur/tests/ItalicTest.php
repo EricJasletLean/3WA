@@ -8,9 +8,11 @@ use App\Html\Italic;
 class ItalicTest extends TestCase
 {
     Protected Italic $italic;
+    Protected Text $text;
     public function setUp(): void
     {
-        $this->italic = new Italic(new Text('Bonjour'));
+        $this->text = new Text('Bonjour');
+        $this->italic = new Italic($this->text);
     }
 
     /**
@@ -23,7 +25,7 @@ class ItalicTest extends TestCase
 
     public function testStringText()
     {
-        $this->assertEquals((string)$this->italic , '<em>Bonjour</em>');
+        $this->assertEquals((string)$this->italic , "<em>{$this->text}</em>");
     }
 
 

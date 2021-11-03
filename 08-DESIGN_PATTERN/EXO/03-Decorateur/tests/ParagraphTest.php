@@ -9,8 +9,10 @@ use App\Html\Paragraph;
 class ParagraphTest extends TestCase
 {
     Protected Paragraph $paragraph;
+    Protected Italic $italic;
     public function setUp(): void
     {
+        $this->italic = new Italic( new Text('Bonjour') );
         $this->paragraph = new Paragraph((new Italic(new Text('Bonjour'))));
     }
 
@@ -24,7 +26,7 @@ class ParagraphTest extends TestCase
 
     public function testStringText()
     {
-        $this->assertEquals((string)$this->paragraph , '<p><em>Bonjour</em></p>');
+        $this->assertEquals((string)$this->paragraph , "<p>{$this->italic}</p>");
     }
 
 
